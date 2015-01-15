@@ -1,58 +1,40 @@
-if RUBY_VERSION =~ /1.9/
-  Encoding.default_external = Encoding::UTF_8
-  Encoding.default_internal = Encoding::UTF_8
-end
-
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.12'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.8'
+# Use postgresql as the database for Active Record
+gem 'pg'
+gem 'rails_12factor', group: :production
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.3'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer',  platforms: :ruby
 
-gem 'ey_config', '0.0.6'
-gem 'jquery-rails', '~> 3.0'
-gem 'rails_autolink', '~> 1.1'
-gem 'simple_form', '~> 2.1'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
-group :assets do
-  gem 'sass-rails', '~> 3.2'
-  gem 'coffee-rails', '~> 3.2'
-  gem 'uglifier', '~> 2.3'
-end
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
 
-platform :ruby do
-  gem 'mysql2', '~> 0.3'
-  gem 'pg', '~> 0.17'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
 
-  gem 'newrelic_rpm', '~> 3.6'
-  gem 'unicorn', '~> 4.7'
-  gem 'puma', '~> 2.6'
-  gem 'json', '~> 1.8'
-  gem 'minitest', '~> 4.7'
-  gem 'psych', '~> 2.0'
-  gem 'racc', '~> 1.4'
-end
+# Use unicorn as the app server
+gem 'unicorn'
 
-platforms :jruby do
-  ar_jdbc_version = '~> 1.3'
-  gem 'activerecord-jdbc-adapter', ar_jdbc_version
-  gem 'activerecord-jdbcmysql-adapter', ar_jdbc_version
-  gem 'activerecord-jdbcpostgresql-adapter', ar_jdbc_version
-  gem 'activerecord-jdbcsqlite3-adapter', ar_jdbc_version
-  gem 'jdbc-mysql', :require => false
-  gem 'jdbc-sqlite3', :require => false
-  gem 'jdbc-postgres', :require => false
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
-  gem 'jruby-openssl', '~> 0.9'
-  gem 'trinidad', '~> 1.4'
-end
+# Use debugger
+# gem 'debugger', group: [:development, :test]
 
-platform :rbx do
-  gem 'rubysl', '~> 2.0'
-  gem 'rubysl-test-unit', '~> 2.0', :require => false
-end
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-group :development, :test do
-
-end

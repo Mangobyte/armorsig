@@ -1,17 +1,35 @@
-[![Build Status](https://travis-ci.org/engineyard/todo.png?branch=update_rails)](https://travis-ci.org/engineyard/todo)
-[![Code Climate](https://codeclimate.com/github/engineyard/todo.png)](https://codeclimate.com/github/engineyard/todo)
+# ruby-getting-started
 
+A barebones Rails app, which can easily be deployed to Heroku.
 
-# Todo for everyone
+This application support the [Getting Started with Ruby on Heroku](https://devcenter.heroku.com/articles/getting-started-with-ruby) article - check it out.
 
-Simple GTD app for task tracking.
+## Running Locally
 
-Supports all Rubies and many stacks (passenger, unicorn, trinidad/jruby).
+Make sure you have Ruby installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
-# To run individual tests: (for example)
+```sh
+$ git clone git@github.com:heroku/ruby-getting-started.git
+$ cd ruby-getting-started
+$ bundle install
+$ rake db:create db:migrate
+$ foreman start web
+```
 
-bundle exec ruby -Itest test/functional/lists_controller_test.rb
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-# To run specific tests: (for example)
+## Deploying to Heroku
 
-bundle exec ruby -Itest test/functional/lists_controller_test.rb --name test_should_create_list
+```sh
+$ heroku create
+$ git push heroku master
+$ heroku run rake db:migrate
+$ heroku open
+```
+
+## Documentation
+
+For more information about using Ruby on Heroku, see these Dev Center articles:
+
+- [Ruby on Heroku](https://devcenter.heroku.com/categories/ruby)
+
